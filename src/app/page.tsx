@@ -340,7 +340,7 @@ const Home: React.FC = () => {
               <motion.div variants={staggerItem}>
                 <label htmlFor="email" className="block text-gold text-lg font-bold mb-3 font-sans">Preferred Email Address:</label>
                 <input type="email" id="email" name="email" className="glass-input w-full px-5 py-3 rounded-lg text-ivory focus:outline-none focus:ring-3 focus:ring-gold border border-gold-light border-opacity-30 bg-panel2" required />
-              </motion.dn>
+              </motion.div>
               <motion.div variants={staggerItem}>
                 <label htmlFor="phone" className="block text-gold text-lg font-bold mb-3 font-sans">Direct Contact Number:</label>
                 <input type="tel" id="phone" name="phone" className="glass-input w-full px-5 py-3 rounded-lg text-ivory focus:outline-none focus:ring-3 focus:ring-gold border border-gold-light border-opacity-30 bg-panel2" required />
