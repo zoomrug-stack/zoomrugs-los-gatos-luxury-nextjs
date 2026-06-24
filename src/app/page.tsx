@@ -8,12 +8,12 @@ const Home: React.FC = () => {
   // Simplified variants for clear visibility of animations
   const fadeIn = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
+    visible: { opacity: 1, transition: { duration: 1, ease: [0.42, 0, 0.58, 1] as const } },
   };
 
   const slideInUp = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] as const } },
   };
 
   const staggerContainer = {
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
 
   const staggerItem = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0, transition: { ease: [0.42, 0, 0.58, 1] as const } },
   };
 
 
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
           variants={fadeIn}
           className="py-24 flex flex-col items-center justify-center bg-panel rounded-3xl shadow-2xl mb-24 glass-effect px-8 py-16"
         >
-          <motion.h2 variants={slideInUp} className="text-6xl serif text-gold mb-12 text-center leading-tight">
+          <motion.h2 variants={slideInUp} className="text-6xl serif text-center text-gold mb-12 text-center leading-tight">
             Discover Your Rug in New Dimensions
           </motion.h2>
           <motion.p variants={staggerItem} className="text-xl font-sans text-ivory mb-12 max-w-3xl text-center opacity-80">
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
           <motion.div
             className="relative w-full max-w-4xl aspect-video bg-gradient-to-br from-gray-900 to-black rounded-xl shadow-gold overflow-hidden group"
             initial={{ scale: 0.9, rotateX: 10 }}
-            whileInView={{ scale: 1, rotateX: 0, transition: { duration: 1, ease: "easeOut" } }}
+            whileInView={{ scale: 1, rotateX: 0, transition: { duration: 1, ease: [0.42, 0, 0.58, 1] as const } }}
             viewport={{ once: true, amount: 0.5 }}
           >
             <motion.img
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
               alt="3D Rug Model Placeholder"
               className="w-full h-full object-contain absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, transition: { delay: 0.5, duration: 1 } }}
+              animate={{ opacity: 1, scale: 1, transition: { delay: 0.5, duration: 1, ease: [0.42, 0, 0.58, 1] as const } }}
             />
             <motion.div
               className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -181,8 +181,8 @@ const Home: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="relative overflow-hidden rounded-lg mb-6">
-                  <img src={item.before} alt="Before Restoration" className="w-full h-auto rounded-lg transform transition-transform duration-500 ease-out group-hover:-translate-y-full absolute" />
-                  <img src={item.after} alt="After Restoration" className="w-full h-auto rounded-lg transform transition-transform duration-500 ease-out group-hover:translate-y-0" />
+                  <img src={item.before} alt="Before Restoration" className="w-full h-full object-contain absolute inset-0 transition-transform duration-500 ease-out group-hover:-translate-y-full absolute" />
+                  <img src={item.after} alt="After Restoration" className="w-full h-full object-contain absolute inset-0 transition-transform duration-500 ease-out group-hover:translate-y-0" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="group-hover:block hidden">View After</span>
                   </div>
@@ -339,8 +339,7 @@ const Home: React.FC = () => {
               </motion.div>
               <motion.div variants={staggerItem}>
                 <label htmlFor="email" className="block text-gold text-lg font-bold mb-3 font-sans">Preferred Email Address:</label>
-                <input type="email" id="email" name="email" className="glass-input w-full px-5 py-3 rounded-lg text-ivory focus:outline-none focus:ring-3 focus:ring-gold border border-gold-light border-opacity-30 bg-panel2" required />
-              </motion.div>
+  </motion.div>
               <motion.div variants={staggerItem}>
                 <label htmlFor="phone" className="block text-gold text-lg font-bold mb-3 font-sans">Direct Contact Number:</label>
                 <input type="tel" id="phone" name="phone" className="glass-input w-full px-5 py-3 rounded-lg text-ivory focus:outline-none focus:ring-3 focus:ring-gold border border-gold-light border-opacity-30 bg-panel2" required />
@@ -351,8 +350,7 @@ const Home: React.FC = () => {
               </motion.div>
               <motion.div variants={staggerItem}>
                 <label htmlFor="rug_details" className="block text-gold text-lg font-bold mb-3 font-sans">Your Rug's Legacy (Approx. Size, Type, Condition):</label>
-                <textarea id="rug_details" name="rug_details" rows={5} className="glass-input w-full px-5 py-3 rounded-lg text-ivory focus:outline-none focus:ring-3 focus:ring-gold border border-gold-light border-opacity-30 bg-panel2" placeholder="e.g., 9x12 ft, Antique Persian Tabriz, worn fringe"></textarea>
-              </motion.div>
+</motion.div>
               <motion.button
                 type="submit"
                 className="btn-luxury btn-filled w-full text-xl md:text-2xl px-10 py-4 mt-8"
